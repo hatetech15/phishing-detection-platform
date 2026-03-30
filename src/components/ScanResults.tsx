@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, ShieldAlert, ShieldCheck, ShieldX, Globe, Clock, AlertTriangle, Info, XCircle, CheckCircle } from "lucide-react";
+import { Shield, ShieldAlert, ShieldCheck, ShieldX, Globe, Clock, AlertTriangle, Info, XCircle, CheckCircle, Brain, Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import type { ScanResult, ThreatIndicator } from "@/lib/phishing-scanner";
@@ -47,9 +47,11 @@ function ThreatRow({ threat, index }: { threat: ThreatIndicator; index: number }
 interface ScanResultsProps {
   result: ScanResult | null;
   isScanning: boolean;
+  aiAnalysis?: string | null;
+  aiLoading?: boolean;
 }
 
-const ScanResults = ({ result, isScanning }: ScanResultsProps) => {
+const ScanResults = ({ result, isScanning, aiAnalysis, aiLoading }: ScanResultsProps) => {
   return (
     <AnimatePresence mode="wait">
       {isScanning && (
@@ -80,7 +82,7 @@ const ScanResults = ({ result, isScanning }: ScanResultsProps) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-8 max-w-2xl mx-auto space-y-4"
+          className="mt-8 max-w-2xl mx-auto space-y-4 text-left"
         >
           {/* Risk Score Card */}
           <motion.div
@@ -128,6 +130,29 @@ const ScanResults = ({ result, isScanning }: ScanResultsProps) => {
                 </div>
               </div>
             </div>
+          </motion.div>
+
+          {/* AI Analysis */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="glass-panel rounded-2xl p-5"
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <Brain className="w-4 h-4 text-primary" />
+              <h4 className="text-sm font-semibold text-foreground">AI Threat Analysis</h4>
+            </div>
+            {aiLoading ? (
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <p className="text-sm">Analyzing with Gemini AI...</p>
+              </div>
+            ) : aiAnalysis ? (
+              <p className="text-sm text-foreground/80 leading-relaxed">{aiAnalysis}</p>
+            ) : (
+              <p className="text-sm text-muted-foreground">AI analysis unavailable.</p>
+            )}
           </motion.div>
 
           {/* Domain Info */}
