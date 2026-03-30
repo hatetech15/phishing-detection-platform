@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Menu, X } from "lucide-react";
+import { Shield, Menu, X, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Security Scan", path: "/#scan" },
+  { label: "Security Scan", path: "/security" },
+  { label: "Scan History", path: "/history" },
   { label: "Report Phishing", path: "/report" },
   { label: "Contact Us", path: "/contact" },
   { label: "About", path: "/#about" },
@@ -14,6 +16,7 @@ const navItems = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   return (
     <motion.header
@@ -24,7 +27,7 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group">
-          <Shield className="w-7 h-7 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_8px_hsl(199_89%_60%/0.6)]" />
+          <Shield className="w-7 h-7 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_8px_hsl(217_71%_45%/0.6)]" />
           <span className="text-xl font-bold font-mono tracking-tight text-foreground">
             Phish<span className="text-primary">Veda</span>
           </span>
@@ -48,18 +51,35 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link
-            to="#"
-            className="px-4 py-2 text-sm font-medium text-primary border border-primary/30 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_15px_hsl(199_89%_60%/0.15)]"
-          >
-            Login
-          </Link>
-          <Link
-            to="#"
-            className="px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md transition-all duration-300 hover:shadow-[0_0_20px_hsl(199_89%_60%/0.4)] hover:scale-105"
-          >
-            Sign Up
-          </Link>
+          {user ? (
+            <>
+              <span className="text-sm text-muted-foreground truncate max-w-[140px]">
+                {user.email}
+              </span>
+              <button
+                onClick={signOut}
+                className="px-4 py-2 text-sm font-medium text-destructive border border-destructive/30 rounded-md transition-all duration-300 hover:bg-destructive/10 flex items-center gap-1.5"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/auth"
+                className="px-4 py-2 text-sm font-medium text-primary border border-primary/30 rounded-md transition-all duration-300 hover:bg-primary/10 hover:border-primary/60 hover:shadow-[0_0_15px_hsl(217_71%_45%/0.15)]"
+              >
+                Login
+              </Link>
+              <Link
+                to="/auth"
+                className="px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md transition-all duration-300 hover:shadow-[0_0_20px_hsl(217_71%_45%/0.4)] hover:scale-105"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile toggle */}
@@ -93,12 +113,23 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="flex gap-3 pt-3 border-t border-border/30">
-                <Link to="#" className="flex-1 text-center px-4 py-2 text-sm font-medium text-primary border border-primary/30 rounded-md">
-                  Login
-                </Link>
-                <Link to="#" className="flex-1 text-center px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md">
-                  Sign Up
-                </Link>
+                {user ? (
+                  <button
+                    onClick={() => { signOut(); setMobileOpen(false); }}
+                    className="flex-1 text-center px-4 py-2 text-sm font-medium text-destructive border border-destructive/30 rounded-md"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <Link to="/auth" onClick={() => setMobileOpen(false)} className="flex-1 text-center px-4 py-2 text-sm font-medium text-primary border border-primary/30 rounded-md">
+                      Login
+                    </Link>
+                    <Link to="/auth" onClick={() => setMobileOpen(false)} className="flex-1 text-center px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-md">
+                      Sign Up
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </motion.div>
