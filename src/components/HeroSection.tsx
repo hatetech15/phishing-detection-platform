@@ -125,6 +125,9 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
+        {/* Scan Results */}
+        <ScanResults result={scanResult} isScanning={isScanning} />
+
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
