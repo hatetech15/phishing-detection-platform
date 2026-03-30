@@ -1,9 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Shield, Search, AlertTriangle, CheckCircle } from "lucide-react";
+import { scanUrl, type ScanResult } from "@/lib/phishing-scanner";
+import ScanResults from "@/components/ScanResults";
 
 const HeroSection = () => {
   const [time, setTime] = useState("");
+  const [urlInput, setUrlInput] = useState("");
+  const [isScanning, setIsScanning] = useState(false);
+  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+
+  const handleScan = useCallback(() => {
+    if (!urlInput.trim()) return;
+    setIsScanning(true);
+    setScanResult(null);
+    // Simulate network delay for UX
+    setTimeout(() => {
+      const result = scanUrl(urlInput.trim());
+      setScanResult(result);
+      setIsScanning(false);
+    }, 1500);
+  }, [urlInput]);
 
   useEffect(() => {
     const update = () => {
