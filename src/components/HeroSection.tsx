@@ -109,11 +109,18 @@ const HeroSection = () => {
             <Search className="w-5 h-5 text-muted-foreground ml-3 flex-shrink-0" />
             <input
               type="text"
+              value={urlInput}
+              onChange={(e) => setUrlInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleScan()}
               placeholder="Enter URL to scan for phishing..."
               className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground/60 py-3 px-2 font-mono text-sm"
             />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-[0_0_25px_hsl(199_89%_60%/0.4)] hover:scale-105 active:scale-95 flex-shrink-0">
-              Scan Now
+            <button
+              onClick={handleScan}
+              disabled={isScanning || !urlInput.trim()}
+              className="px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-[0_0_25px_hsl(199_89%_60%/0.4)] hover:scale-105 active:scale-95 flex-shrink-0 disabled:opacity-50 disabled:hover:scale-100"
+            >
+              {isScanning ? "Scanning..." : "Scan Now"}
             </button>
           </div>
         </motion.div>
