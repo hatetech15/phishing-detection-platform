@@ -1,9 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Shield, Search, AlertTriangle, CheckCircle } from "lucide-react";
+import { scanUrl, type ScanResult } from "@/lib/phishing-scanner";
+import ScanResults from "@/components/ScanResults";
 
 const HeroSection = () => {
   const [time, setTime] = useState("");
+  const [urlInput, setUrlInput] = useState("");
+  const [isScanning, setIsScanning] = useState(false);
+  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+
+  const handleScan = useCallback(() => {
+    if (!urlInput.trim()) return;
+    setIsScanning(true);
+    setScanResult(null);
+    // Simulate network delay for UX
+    setTimeout(() => {
+      const result = scanUrl(urlInput.trim());
+      setScanResult(result);
+      setIsScanning(false);
+    }, 1500);
+  }, [urlInput]);
 
   useEffect(() => {
     const update = () => {
@@ -92,14 +109,24 @@ const HeroSection = () => {
             <Search className="w-5 h-5 text-muted-foreground ml-3 flex-shrink-0" />
             <input
               type="text"
+              value={urlInput}
+              onChange={(e) => setUrlInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleScan()}
               placeholder="Enter URL to scan for phishing..."
               className="flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted-foreground/60 py-3 px-2 font-mono text-sm"
             />
-            <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-[0_0_25px_hsl(199_89%_60%/0.4)] hover:scale-105 active:scale-95 flex-shrink-0">
-              Scan Now
+            <button
+              onClick={handleScan}
+              disabled={isScanning || !urlInput.trim()}
+              className="px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-[0_0_25px_hsl(199_89%_60%/0.4)] hover:scale-105 active:scale-95 flex-shrink-0 disabled:opacity-50 disabled:hover:scale-100"
+            >
+              {isScanning ? "Scanning..." : "Scan Now"}
             </button>
           </div>
         </motion.div>
+
+        {/* Scan Results */}
+        <ScanResults result={scanResult} isScanning={isScanning} />
 
         {/* Stats */}
         <motion.div
