@@ -16,7 +16,7 @@ export interface DomainInfo {
 export interface ScanResult {
   url: string;
   riskScore: number; // 0-100
-  riskLevel: "safe" | "low" | "medium" | "high" | "critical";
+  riskLevel: "safe" | "low" | "medium" | "high" | "significant";
   domainInfo: DomainInfo;
   threats: ThreatIndicator[];
   scanTime: number; // ms
@@ -164,7 +164,7 @@ export function scanUrl(urlStr: string): ScanResult {
   score = Math.min(100, Math.max(0, score));
 
   const riskLevel: ScanResult["riskLevel"] =
-    score <= 10 ? "safe" : score <= 30 ? "low" : score <= 55 ? "medium" : score <= 80 ? "high" : "critical";
+    score <= 10 ? "safe" : score <= 30 ? "low" : score <= 50 ? "medium" : score <= 75 ? "high" : "significant";
 
   return {
     url: urlStr,

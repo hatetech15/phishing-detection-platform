@@ -9,11 +9,11 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const riskColors: Record<string, string> = {
-  safe: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  low: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  safe: "bg-neutral-300/10 text-neutral-300 border-neutral-300/20",
+  low: "bg-neutral-400/10 text-neutral-400 border-neutral-400/20",
   medium: "bg-amber-500/10 text-amber-400 border-amber-500/20",
   high: "bg-orange-500/10 text-orange-400 border-orange-500/20",
-  critical: "bg-destructive/10 text-destructive border-destructive/20",
+  significant: "bg-red-500/10 text-red-500 border-red-500/20",
 };
 
 const SecurityScan = () => {
