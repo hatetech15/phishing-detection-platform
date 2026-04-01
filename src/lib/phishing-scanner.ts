@@ -164,7 +164,7 @@ export function scanUrl(urlStr: string): ScanResult {
   score = Math.min(100, Math.max(0, score));
 
   const riskLevel: ScanResult["riskLevel"] =
-    score <= 10 ? "safe" : score <= 30 ? "low" : score <= 55 ? "medium" : score <= 80 ? "high" : "critical";
+    score <= 10 ? "safe" : score <= 30 ? "low" : score <= 50 ? "medium" : score <= 75 ? "high" : "significant";
 
   return {
     url: urlStr,
