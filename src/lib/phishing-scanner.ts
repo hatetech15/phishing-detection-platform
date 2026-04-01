@@ -16,7 +16,7 @@ export interface DomainInfo {
 export interface ScanResult {
   url: string;
   riskScore: number; // 0-100
-  riskLevel: "safe" | "low" | "medium" | "high" | "critical";
+  riskLevel: "safe" | "low" | "medium" | "high" | "significant";
   domainInfo: DomainInfo;
   threats: ThreatIndicator[];
   scanTime: number; // ms

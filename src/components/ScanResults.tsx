@@ -5,11 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import type { ScanResult, ThreatIndicator } from "@/lib/phishing-scanner";
 
 const riskConfig = {
-  safe: { color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/30", icon: ShieldCheck, label: "Safe" },
-  low: { color: "text-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/30", icon: ShieldCheck, label: "Low Risk" },
+  safe: { color: "text-neutral-300", bg: "bg-neutral-300/10", border: "border-neutral-300/30", icon: ShieldCheck, label: "Safe" },
+  low: { color: "text-neutral-400", bg: "bg-neutral-400/10", border: "border-neutral-400/30", icon: ShieldCheck, label: "Low Risk" },
   medium: { color: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/30", icon: Shield, label: "Medium Risk" },
   high: { color: "text-orange-400", bg: "bg-orange-400/10", border: "border-orange-400/30", icon: ShieldAlert, label: "High Risk" },
-  critical: { color: "text-destructive", bg: "bg-destructive/10", border: "border-destructive/30", icon: ShieldX, label: "Critical" },
+  significant: { color: "text-red-500", bg: "bg-red-500/10", border: "border-red-500/30", icon: ShieldX, label: "Significant Risk" },
 };
 
 const severityIcon = {
@@ -20,10 +20,10 @@ const severityIcon = {
 };
 
 const severityColor = {
-  low: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
+  low: "text-neutral-400 bg-neutral-400/10 border-neutral-400/20",
   medium: "text-amber-400 bg-amber-400/10 border-amber-400/20",
   high: "text-orange-400 bg-orange-400/10 border-orange-400/20",
-  critical: "text-destructive bg-destructive/10 border-destructive/20",
+  critical: "text-red-500 bg-red-500/10 border-red-500/20",
 };
 
 function ThreatRow({ threat, index }: { threat: ThreatIndicator; index: number }) {
