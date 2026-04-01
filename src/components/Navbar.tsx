@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, Menu, X, LogOut } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import phishvedaLogo from "/phishveda-logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -26,8 +27,8 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-border/30"
     >
       <div className="container flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2 group">
-          <Shield className="w-7 h-7 text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_8px_hsl(217_71%_45%/0.6)]" />
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <img src={phishvedaLogo} alt="PhishVeda" className="w-8 h-8 invert transition-all duration-300 group-hover:scale-110" width={32} height={32} />
           <span className="text-xl font-bold font-mono tracking-tight text-foreground">
             Phish<span className="text-primary">Veda</span>
           </span>
