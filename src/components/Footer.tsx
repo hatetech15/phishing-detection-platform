@@ -1,11 +1,10 @@
-import { Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="border-t border-border/30 bg-card/40 backdrop-blur-sm">
     <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
-        <Shield className="w-5 h-5 text-primary" />
+        <img src="/phishveda-logo.png" alt="PhishVeda" className="w-5 h-5 invert" width={20} height={20} />
         <span className="font-mono font-bold text-sm text-foreground">
           Phish<span className="text-primary">Veda</span>
         </span>

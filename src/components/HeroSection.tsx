@@ -134,7 +134,7 @@ const HeroSection = () => {
           className="mb-8 inline-block"
         >
           <div className="relative">
-            <Shield className="w-20 h-20 text-primary animate-pulse-glow rounded-full" />
+            <img src="/phishveda-logo.png" alt="PhishVeda" className="w-20 h-20 invert animate-pulse-glow rounded-full" width={80} height={80} />
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
           </div>
         </motion.div>
