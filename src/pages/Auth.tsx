@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Shield, Eye, EyeOff, User, Mail, Phone, Building } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { lovable } from "@/integrations/lovable/index";
 import { useToast } from "@/hooks/use-toast";
 import PageLayout from "@/components/PageLayout";
 
