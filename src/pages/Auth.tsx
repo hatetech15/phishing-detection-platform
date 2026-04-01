@@ -94,7 +94,7 @@ const Auth = () => {
               transition={{ delay: 0.2, type: "spring" }}
               className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 mb-4"
             >
-              <Shield className="w-7 h-7 text-primary" />
+              <img src="/phishveda-logo.png" alt="PhishVeda" className="w-8 h-8 invert" width={32} height={32} />
             </motion.div>
             <h1 className="text-3xl font-extrabold text-foreground mb-2">
               {isLogin ? "Welcome Back" : "Create Account"}

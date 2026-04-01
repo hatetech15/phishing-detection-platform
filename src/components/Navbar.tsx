@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2.5 group">
-          <img src={phishvedaLogo} alt="PhishVeda" className="w-8 h-8 invert transition-all duration-300 group-hover:scale-110" width={32} height={32} />
+          <img src={phishvedaLogo} alt="PhishVeda" className="w-10 h-10 invert transition-all duration-300 group-hover:scale-110" width={40} height={40} />
           <span className="text-xl font-bold font-mono tracking-tight text-foreground">
             Phish<span className="text-primary">Veda</span>
           </span>
