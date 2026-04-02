@@ -10,6 +10,7 @@ const navItems = [
   { label: "Security Scan", path: "/security" },
   { label: "Scan History", path: "/history" },
   { label: "Report Phishing", path: "/report" },
+  { label: "Blog", path: "/blog" },
   { label: "Contact Us", path: "/contact" },
   { label: "About", path: "/#about" },
 ];
