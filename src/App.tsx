@@ -13,6 +13,8 @@ import Auth from "./pages/Auth";
 import ScanHistory from "./pages/ScanHistory";
 import SecurityScan from "./pages/SecurityScan";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import BlogCreate from "./pages/BlogCreate";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,9 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/history" element={<ScanHistory />} />
               <Route path="/security" element={<SecurityScan />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/new" element={<BlogCreate />} />
+              <Route path="/blog/edit/:id" element={<BlogCreate />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
