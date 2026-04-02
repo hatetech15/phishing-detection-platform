@@ -13,6 +13,8 @@ import Auth from "./pages/Auth";
 import ScanHistory from "./pages/ScanHistory";
 import SecurityScan from "./pages/SecurityScan";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import BlogCreate from "./pages/BlogCreate";
 
 const queryClient = new QueryClient();
 
