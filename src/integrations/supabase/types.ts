@@ -56,6 +56,39 @@ export type Database = {
         }
         Relationships: []
       }
+      functionality_scans: {
+        Row: {
+          created_at: string
+          full_result: Json | null
+          id: string
+          input_value: string
+          result_summary: string | null
+          scan_type: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          full_result?: Json | null
+          id?: string
+          input_value: string
+          result_summary?: string | null
+          scan_type: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          full_result?: Json | null
+          id?: string
+          input_value?: string
+          result_summary?: string | null
+          scan_type?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
