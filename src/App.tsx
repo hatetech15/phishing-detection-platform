@@ -15,6 +15,14 @@ import SecurityScan from "./pages/SecurityScan";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogCreate from "./pages/BlogCreate";
+import Functionalities from "./pages/Functionalities";
+import DomainSquatting from "./pages/func/DomainSquatting";
+import BreachCheck from "./pages/func/BreachCheck";
+import DnsTwist from "./pages/func/DnsTwist";
+import UrlScanner from "./pages/func/UrlScanner";
+import WhoisLookup from "./pages/func/WhoisLookup";
+import NetworkScanner from "./pages/func/NetworkScanner";
+import FunctionalityScanHistory from "./pages/func/FunctionalityScanHistory";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +48,14 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/new" element={<BlogCreate />} />
               <Route path="/blog/edit/:id" element={<BlogCreate />} />
+              <Route path="/functionalities" element={<Functionalities />} />
+              <Route path="/functionalities/domain-squatting" element={<DomainSquatting />} />
+              <Route path="/functionalities/breach-check" element={<BreachCheck />} />
+              <Route path="/functionalities/dns-twist" element={<DnsTwist />} />
+              <Route path="/functionalities/url-scanner" element={<UrlScanner />} />
+              <Route path="/functionalities/whois-lookup" element={<WhoisLookup />} />
+              <Route path="/functionalities/network-scanner" element={<NetworkScanner />} />
+              <Route path="/functionalities/scan-history" element={<FunctionalityScanHistory />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
