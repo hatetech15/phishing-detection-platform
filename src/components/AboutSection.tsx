@@ -5,22 +5,22 @@ const features = [
   {
     icon: Brain,
     title: "Intelligent Analysis",
-    desc: "Advanced heuristics and pattern matching to identify suspicious URL structures.",
+    desc: "Transform raw data into actionable security insights with advanced intelligent analysis.",
   },
   {
     icon: Globe,
     title: "Domain Verification",
-    desc: "Cross-reference domains against known phishing databases and threat feeds.",
+    desc: "Verify domain authenticity to ensure websites are legitimate and not malicious imitations.",
   },
   {
     icon: ShieldCheck,
     title: "Risk Scoring",
-    desc: "Multi-factor risk assessment with confidence scoring for each scanned URL.",
+    desc: "URL security using multiple intelligence layers with a risk score for the results.",
   },
   {
     icon: Zap,
     title: "Real-Time Detection",
-    desc: "Instant threat analysis with sub-second response times for live protection.",
+    desc: "Analyze and detect suspicious activity with continuous real-time monitoring.",
   },
 ];
 

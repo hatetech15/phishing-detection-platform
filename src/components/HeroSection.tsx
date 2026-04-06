@@ -157,8 +157,7 @@ const HeroSection = () => {
           transition={{ delay: 0.7, duration: 0.6 }}
           className="max-w-2xl mx-auto text-lg text-muted-foreground mb-10 leading-relaxed"
         >
-          Detect phishing URLs using AI-powered analysis, domain verification,
-          and threat intelligence to help identify and prevent online fraud in real time.
+          PhishVeda transforms cybersecurity with AI-powered phishing detection, enabling real-time analysis, domain checks, and threat intelligence for enhanced protection.
         </motion.p>
 
         {/* Scan input */}

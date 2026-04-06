@@ -9,11 +9,7 @@ const navItems = [
   { label: "Home", path: "/" },
   { label: "Security Scan", path: "/security" },
   { label: "Functionalities", path: "/functionalities" },
-  { label: "Scan History", path: "/history" },
-  { label: "Report Phishing", path: "/report" },
   { label: "Blog", path: "/blog" },
-  { label: "Contact Us", path: "/contact" },
-  { label: "About", path: "/#about" },
 ];
 
 const Navbar = () => {
