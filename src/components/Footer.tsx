@@ -10,9 +10,10 @@ const Footer = () => (
         </span>
       </Link>
       <nav className="flex gap-6 text-sm text-muted-foreground">
-        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-        <Link to="/report" className="hover:text-primary transition-colors">Report</Link>
-        <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+        <Link to="/history" className="hover:text-primary transition-colors">Scan History</Link>
+        <Link to="/report" className="hover:text-primary transition-colors">Report Phishing</Link>
+        <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+        <Link to="/#about" className="hover:text-primary transition-colors">About</Link>
       </nav>
       <p className="text-xs text-muted-foreground">
         © 2026 PhishVeda | Open Source Security Tool
