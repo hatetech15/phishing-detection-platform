@@ -39,8 +39,9 @@ const AboutSection = () => (
           About <span className="text-primary glow-text">PhishVeda</span>
         </h2>
         <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-          An open-source phishing detection engine powered by domain intelligence,
-          risk scoring, and real-time threat intelligence feeds.
+          A comprehensive cybersecurity platform combining intelligent analysis,
+          domain verification, risk scoring, and real-time threat detection to
+          identify and neutralize phishing attacks before they cause harm.
         </p>
       </motion.div>
 
