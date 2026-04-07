@@ -191,33 +191,6 @@ const HeroSection = () => {
         {/* Scan Results */}
         <ScanResults result={scanResult} isScanning={isScanning} aiAnalysis={aiAnalysis} aiLoading={aiLoading} />
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-8 mt-16"
-        >
-          {[
-            { icon: AlertTriangle, label: "Threats Detected", value: "12,847" },
-            { icon: CheckCircle, label: "URLs Scanned", value: "1.2M+" },
-            { icon: Shield, label: "Users Protected", value: "50K+" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 + i * 0.15, duration: 0.5 }}
-              className="flex items-center gap-3 px-6 py-3 glass-panel rounded-xl"
-            >
-              <stat.icon className="w-5 h-5 text-primary" />
-              <div className="text-left">
-                <p className="text-xl font-bold font-mono text-foreground">{stat.value}</p>
-                <p className="text-xs text-muted-foreground">{stat.label}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
