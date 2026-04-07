@@ -115,60 +115,77 @@ const HeroSection = () => {
       <div className="absolute inset-0 cyber-grid opacity-40" />
       <div className="absolute inset-0 scan-line pointer-events-none" />
 
-      <div className="container relative z-10 py-32 text-center">
-        {/* Time display */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-8"
-        >
-          <span className="inline-block px-4 py-1.5 text-xs font-mono text-primary/80 glass-panel rounded-full">
-            IST — {time}
-          </span>
-        </motion.div>
+      <div className="container relative z-10 py-32">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Left: Content */}
+          <div className="flex-1 text-center lg:text-left">
+            {/* Time display */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="mb-8"
+            >
+              <span className="inline-block px-4 py-1.5 text-xs font-mono text-primary/80 glass-panel rounded-full">
+                IST — {time}
+              </span>
+            </motion.div>
 
-        {/* Shield icon */}
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
-          className="mb-8 inline-block"
-        >
-          <div className="relative">
-            <img src="/phishveda-logo.png" alt="PhishVeda" className="w-28 h-28 invert animate-pulse-glow rounded-full" width={112} height={112} />
-            <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+            {/* Shield icon */}
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
+              className="mb-8 inline-block"
+            >
+              <div className="relative">
+                <img src="/phishveda-logo.png" alt="PhishVeda" className="w-28 h-28 invert animate-pulse-glow rounded-full" width={112} height={112} />
+                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+              </div>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+              className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6"
+            >
+              <span className="text-foreground">Phishing</span>{" "}
+              <span className="text-primary glow-text">Detection</span>
+              <br />
+              <span className="text-foreground">Platform</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="max-w-2xl mx-auto lg:mx-0 text-lg text-muted-foreground mb-10 leading-relaxed"
+            >
+              PhishVeda transforms cybersecurity with AI-powered phishing detection, enabling real-time analysis, domain checks, and threat intelligence for enhanced protection.
+            </motion.p>
           </div>
-        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.7 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6"
-        >
-          <span className="text-foreground">Phishing</span>{" "}
-          <span className="text-primary glow-text">Detection</span>
-          <br />
-          <span className="text-foreground">Platform</span>
-        </motion.h1>
+          {/* Right: 3D Cube */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex-1 hidden lg:block"
+          >
+            <Suspense fallback={<div className="w-full h-[450px]" />}>
+              <CyberCube />
+            </Suspense>
+          </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="max-w-2xl mx-auto text-lg text-muted-foreground mb-10 leading-relaxed"
-        >
-          PhishVeda transforms cybersecurity with AI-powered phishing detection, enabling real-time analysis, domain checks, and threat intelligence for enhanced protection.
-        </motion.p>
-
-        {/* Scan input */}
+        {/* Scan input - full width below */}
         <motion.div
           id="scan"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="max-w-xl mx-auto"
+          className="max-w-xl mx-auto mt-8"
         >
           <div className="flex items-center gap-2 p-2 glass-panel rounded-xl glow-border transition-all duration-300 focus-within:glow-border-intense">
             <Search className="w-5 h-5 text-muted-foreground ml-3 flex-shrink-0" />
@@ -192,7 +209,6 @@ const HeroSection = () => {
 
         {/* Scan Results */}
         <ScanResults result={scanResult} isScanning={isScanning} aiAnalysis={aiAnalysis} aiLoading={aiLoading} />
-
       </div>
     </section>
   );
