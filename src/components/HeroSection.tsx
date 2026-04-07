@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Shield, Search, AlertTriangle, CheckCircle } from "lucide-react";
+import { Search } from "lucide-react";
 import { scanUrl, type ScanResult } from "@/lib/phishing-scanner";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
