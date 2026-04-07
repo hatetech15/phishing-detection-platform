@@ -1,6 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+
+const CyberCube = lazy(() => import("@/components/CyberCube"));
 import { scanUrl, type ScanResult } from "@/lib/phishing-scanner";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
