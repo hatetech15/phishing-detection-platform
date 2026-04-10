@@ -131,18 +131,6 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Shield icon */}
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
-              className="mb-8 inline-block"
-            >
-              <div className="relative">
-                <img src="/phishveda-logo.png" alt="PhishVeda" className="w-28 h-28 invert animate-pulse-glow rounded-full" width={112} height={112} />
-                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-              </div>
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
