@@ -171,7 +171,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex-1 hidden lg:block"
+            className="flex-1 w-full max-w-md mx-auto lg:max-w-none"
           >
             <Suspense fallback={<div className="w-full h-[450px]" />}>
               <CyberCube />
