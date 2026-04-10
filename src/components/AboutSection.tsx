@@ -1,5 +1,8 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Brain, Globe, ShieldCheck, Zap } from "lucide-react";
+
+const LogoOrbit = lazy(() => import("@/components/LogoOrbit"));
 
 const features = [
   {
@@ -33,17 +36,31 @@ const AboutSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-center mb-8"
       >
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-foreground">
           About <span className="text-primary glow-text">PhishVeda</span>
         </h2>
-        <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
-          A comprehensive cybersecurity platform combining intelligent analysis,
-          domain verification, risk scoring, and real-time threat detection to
-          identify and neutralize phishing attacks before they cause harm.
-        </p>
       </motion.div>
+
+      {/* Logo Orbit Animation */}
+      <div className="flex justify-center mb-8">
+        <Suspense fallback={<div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]" />}>
+          <LogoOrbit />
+        </Suspense>
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl mx-auto text-muted-foreground text-lg text-center mb-16"
+      >
+        A comprehensive cybersecurity platform combining intelligent analysis,
+        domain verification, risk scoring, and real-time threat detection to
+        identify and neutralize phishing attacks before they cause harm.
+      </motion.p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((f, i) => (
