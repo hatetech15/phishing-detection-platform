@@ -161,8 +161,8 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex-1 w-full max-w-md mx-auto lg:max-w-none"
           >
-            <Suspense fallback={<div className="w-full h-[450px]" />}>
-              <CyberCube />
+            <Suspense fallback={<div className="w-full h-[400px]" />}>
+              <LogoOrbit />
             </Suspense>
           </motion.div>
         </div>
