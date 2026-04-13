@@ -1,6 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
+import { RoundedBox } from "@react-three/drei";
 
 const CUBE_SIZE = 0.55;
 const GAP = 0.08;
