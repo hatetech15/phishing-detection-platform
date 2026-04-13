@@ -49,6 +49,7 @@ const RubiksCube = () => {
     }
   });
 
+  return (
     <group ref={groupRef}>
       {cubelets.map((pos, i) => (
         <RoundedBox
