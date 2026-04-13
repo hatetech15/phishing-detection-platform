@@ -41,34 +41,18 @@ const RubiksCube = () => {
     return positions;
   }, []);
 
-  const geometry = useMemo(
-    () => new THREE.RoundedBoxGeometry(CUBE_SIZE, CUBE_SIZE, CUBE_SIZE, 2, 0.04),
-    []
-  );
-
-  useFrame((_, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.x += delta * 0.35;
-      groupRef.current.rotation.y += delta * 0.5;
-      groupRef.current.rotation.z += delta * 0.15;
-    }
-  });
-
   return (
     <group ref={groupRef}>
       {cubelets.map((pos, i) => (
-        <mesh
+        <RoundedBox
           key={i}
           position={pos}
-          geometry={geometry}
+          args={[CUBE_SIZE, CUBE_SIZE, CUBE_SIZE]}
+          radius={0.04}
+          smoothness={2}
           material={createCubeletMaterials()}
         />
       ))}
-      {/* Thin black lines between cubelets */}
-      <lineSegments>
-        <edgesGeometry args={[new THREE.BoxGeometry(OFFSET * 2 + CUBE_SIZE, OFFSET * 2 + CUBE_SIZE, OFFSET * 2 + CUBE_SIZE)]} />
-        <lineBasicMaterial color="#222222" transparent opacity={0.3} />
-      </lineSegments>
     </group>
   );
 };
