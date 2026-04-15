@@ -7,14 +7,14 @@ const CUBE_SIZE = 0.55;
 const GAP = 0.08;
 const OFFSET = CUBE_SIZE + GAP;
 
-// Monochrome cyber palette
+// Elegant monochrome palette matching site theme
 const FACE_COLORS = {
-  right: "#e0e0e0",   // light grey
-  left: "#808080",     // mid grey
-  top: "#ffffff",      // white
-  bottom: "#404040",   // dark grey
-  front: "#b0b0b0",    // silver
-  back: "#606060",     // charcoal
+  right: "hsl(0 0% 85%)",    // primary - light silver
+  left: "hsl(0 0% 45%)",      // muted-foreground - medium grey
+  top: "hsl(0 0% 95%)",       // foreground - pure white
+  bottom: "hsl(0 0% 12%)",    // secondary - dark grey
+  front: "hsl(0 0% 70%)",     // ring - light grey
+  back: "hsl(222 20% 6%)",    // background - deep dark
 };
 
 const createCubeletMaterials = () => [
